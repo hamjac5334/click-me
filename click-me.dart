@@ -136,26 +136,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
       //did not know how to layer buttons so I Google'd it
       //https://stackoverflow.com/questions/50839282/how-to-add-multiple-floating-button-in-stack-widget-in-flutter
-      floatingActionButton: Stack(
-        children: <Widget>[
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: FloatingActionButton(
-              onPressed: _decreaseCounter,
-              tooltip: 'Decrease',
-              child: const Icon(Icons.remove), 
-            ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton.icon(
+                onPressed: _decreaseCounter,
+                icon: const Icon(Icons.remove),
+                label: const Text('Decrease'),
+              ),
+              const SizedBox(width: 10),
+              ElevatedButton.icon(
+                onPressed: _incrementCounter,
+                icon: const Icon(Icons.add),
+                label: const Text('Increase'),
+              ),
+            ],
           ),
-
-          Align(
-            alignment: Alignment.bottomRight,
-            child: FloatingActionButton(
-              onPressed: _incrementCounter,
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ),
-          ),
-          
         ],
       ),
     );
